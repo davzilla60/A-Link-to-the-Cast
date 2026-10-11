@@ -23,7 +23,6 @@
   - **The Legend of Align-da**: 10 correct. A gold crest with aligned stone sections and ten gems. With 10 cases, this needs a perfect run.
   - Chamber II: **Halfway to X-Ray Vision** (5 correct, half-lit X-ray goggles), **X-Ray Vision Unlocked** (10 correct, fully lit goggles) and **Missed the Mark** (lose all three bubbles, a target with a stray dart). The two correct-answer markers use the item-held pose; Missed the Mark shows a banner instead.
 - **Controls:** arrows or WASD to move, Space/Enter/Z for A, `V` to view the film, `N`/`F` to choose directly, Esc to close the viewer. In the viewer, `+`/`-`/`0` zoom, `I` inverts and `E` expands. Clicking or tapping the floor walks there. On touch devices a D-pad and A/B buttons appear.
-- **Title screen:** **Begin quest** plays the cave intro. **Skip to the guardians** goes straight to the chamber.
 - Sound is synthesised chip audio with a toggle (no audio files). Unlocked markers and the sound setting are saved in the browser.
 
 ## Files
