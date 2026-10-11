@@ -19,10 +19,11 @@ A = ROOT / "assets"
 MAX_SIDE = 1400
 
 # "fracture" is the verified answer (labelled by the user, 2026-10-11).
+# "chamber" 1 = Stable & Splinter's guardians' chamber, 2 = Saria's Lava Gym.
 # "source" is a key into SOURCES. Text is shown on the answer card.
 CASES = [
     {
-        "id": "c01", "src": "01.jpg", "fracture": False, "source": None,
+        "id": "c01", "src": "01.jpg", "chamber": 1, "fracture": False, "source": None,
         "label": "Right knee, AP",
         "title": "No fracture: right knee",
         "findings": [
@@ -32,7 +33,7 @@ CASES = [
         ],
     },
     {
-        "id": "c02", "src": "02.jpg", "fracture": False, "source": None,
+        "id": "c02", "src": "02.jpg", "chamber": 1, "fracture": False, "source": None,
         "label": "Ankle and hindfoot, lateral",
         "title": "No fracture: lateral ankle",
         "findings": [
@@ -42,7 +43,7 @@ CASES = [
         ],
     },
     {
-        "id": "c03", "src": "03.jpg", "fracture": False, "source": None,
+        "id": "c03", "src": "03.jpg", "chamber": 1, "fracture": False, "source": None,
         "label": "Left ankle, AP",
         "title": "No fracture: left ankle",
         "findings": [
@@ -52,7 +53,7 @@ CASES = [
         ],
     },
     {
-        "id": "c04", "src": "04.jpg", "fracture": False, "source": None,
+        "id": "c04", "src": "04.jpg", "chamber": 1, "fracture": False, "source": None,
         "label": "Child's forearm and elbow",
         "title": "No fracture: child's forearm",
         "findings": [
@@ -62,7 +63,7 @@ CASES = [
         ],
     },
     {
-        "id": "c05", "src": "05.jpg", "fracture": False, "source": "fracatlas",
+        "id": "c05", "src": "05.jpg", "chamber": 1, "fracture": False, "source": "fracatlas",
         "label": "Elbow, AP and lateral",
         "title": "No fracture: elbow",
         "findings": [
@@ -72,7 +73,7 @@ CASES = [
         ],
     },
     {
-        "id": "c06", "src": "06.jpg", "fracture": True, "source": None,
+        "id": "c06", "src": "06.jpg", "chamber": 1, "fracture": True, "source": None,
         "label": "Left knee, AP",
         "title": "Fracture: proximal tibia",
         "findings": [
@@ -82,7 +83,7 @@ CASES = [
         ],
     },
     {
-        "id": "c07", "src": "07.jpg", "fracture": True, "source": "fracatlas",
+        "id": "c07", "src": "07.jpg", "chamber": 1, "fracture": True, "source": "fracatlas",
         "label": "Pelvis and hips, AP",
         "title": "Fracture: right proximal femur",
         "findings": [
@@ -92,7 +93,7 @@ CASES = [
         ],
     },
     {
-        "id": "c08", "src": "08.jpg", "fracture": True, "source": "fracatlas",
+        "id": "c08", "src": "08.jpg", "chamber": 1, "fracture": True, "source": "fracatlas",
         "label": "Infant forearm, held for the film",
         "title": "Fracture: infant forearm",
         "findings": [
@@ -102,7 +103,7 @@ CASES = [
         ],
     },
     {
-        "id": "c09", "src": "09.jpg", "fracture": True, "source": "fracatlas",
+        "id": "c09", "src": "09.jpg", "chamber": 1, "fracture": True, "source": "fracatlas",
         "label": "Wrist and hand, PA",
         "title": "Fracture: distal radius",
         "findings": [
@@ -112,13 +113,114 @@ CASES = [
         ],
     },
     {
-        "id": "c10", "src": "10.jpg", "fracture": True, "source": None,
+        "id": "c10", "src": "10.jpg", "chamber": 1, "fracture": True, "source": None,
         "label": "Infant arm, held for the film",
         "title": "Fracture: around the infant elbow",
         "findings": [
             "Look at the proximal radius and ulna next to the elbow. The metaphyseal outline is irregular, not the smooth flare it should be.",
             "Much of an infant's elbow is unossified cartilage, so the gaps between the bones are normal. The fracture is in the bone you can see.",
             "The carer's hands are in the beam: shield anyone who has to hold a patient still.",
+        ],
+    },
+    # ---- chamber 2: Saria's Lava Gym ---------------------------------------------------
+    {
+        "id": "c11", "src": "11.jpg", "chamber": 2, "fracture": True, "source": "fracatlas",
+        "label": "Forearm and wrist, lateral and PA",
+        "title": "Fracture: distal radius",
+        "findings": [
+            "A dense, irregular band crosses the distal radius just above the wrist, on both views: an impacted fracture.",
+            "On the lateral view, check the tilt of the distal radial joint surface. It should face slightly forwards (volar).",
+            "Always look at both views. A fracture can be obvious on one and subtle on the other.",
+        ],
+    },
+    {
+        "id": "c12", "src": "12.jpg", "chamber": 2, "fracture": True, "source": None,
+        "label": "Child's right elbow and forearm",
+        "title": "Fracture: proximal ulna",
+        "findings": [
+            "Thin fracture lines run through the proximal ulnar metaphysis, just below the elbow joint.",
+            "With any forearm fracture, check the elbow and wrist joints too. A proximal ulna fracture can come with a radial head dislocation (Monteggia).",
+            "In children, the growth plates and ossification centres are normal. Fracture lines are sharper and cross the bone where no growth plate should be.",
+        ],
+    },
+    {
+        "id": "c13", "src": "13.jpg", "chamber": 2, "fracture": True, "source": None,
+        "label": "Child's left lower leg, AP",
+        "title": "Fracture: tibial shaft (spiral)",
+        "findings": [
+            "A thin oblique line spirals through the lower half of the tibial shaft.",
+            "The fibula is intact and the tibia is not displaced, so this one is easy to miss.",
+            "In toddlers, a spiral tibial fracture can be faint. Follow both cortices and look for a fine dark line crossing the bone.",
+        ],
+    },
+    {
+        "id": "c14", "src": "14.jpg", "chamber": 2, "fracture": True, "source": None,
+        "label": "Forearm and wrist, lateral",
+        "title": "Fracture: distal forearm",
+        "findings": [
+            "The distal radius is broken just above the wrist, with fragmentation and angulation of the distal fragment.",
+            "Compare the smooth shaft above with the jagged outline at the fracture site.",
+            "Check the wrist alignment on the lateral view: the radius, lunate and capitate should stack in a line.",
+        ],
+    },
+    {
+        "id": "c15", "src": "15.jpg", "chamber": 2, "fracture": True, "source": None,
+        "label": "Left lower leg, lateral and AP",
+        "title": "Fracture: tibial shaft",
+        "findings": [
+            "A fracture crosses the mid tibial shaft, with a small step in the cortex at the same level on both views.",
+            "A true fracture line shows up at a matching level on each view. An artefact usually does not.",
+            "The thin vertical lines in the middle of the film are the edges of the two exposures, not part of the patient.",
+        ],
+    },
+    {
+        "id": "c16", "src": "16.jpg", "chamber": 2, "fracture": False, "source": "fracatlas",
+        "label": "Child's elbow and forearm, two views",
+        "title": "No fracture: child's elbow and forearm",
+        "findings": [
+            "The radius and ulna are straight, with smooth cortices on both views.",
+            "The ossification centres at the elbow and the growth plates at the wrist are normal for a child.",
+            "On a lateral elbow, check that a line along the front of the humerus passes through the capitellum.",
+        ],
+    },
+    {
+        "id": "c17", "src": "17.jpg", "chamber": 2, "fracture": False, "source": None,
+        "label": "Left forearm, lateral and AP",
+        "title": "No fracture: forearm",
+        "findings": [
+            "The radius and ulna have smooth, continuous cortices from elbow to wrist on both views.",
+            "The elbow and wrist joints are aligned.",
+            "The dark vertical band between the two views is the edge of each exposure, not part of the patient.",
+        ],
+    },
+    {
+        "id": "c18", "src": "18.jpg", "chamber": 2, "fracture": False, "source": None,
+        "label": "Thigh (femur), AP",
+        "title": "No fracture: femur",
+        "findings": [
+            "The femoral shaft and distal femur have smooth, unbroken cortices.",
+            "The beaded white densities in the soft tissue of the inner thigh lie away from the bone: probably vascular calcification, not bone fragments.",
+            "Not every white speck is a fragment. Fragments sit next to a gap in the bone they came from.",
+        ],
+    },
+    {
+        "id": "c19", "src": "19.jpg", "chamber": 2, "fracture": False, "source": None,
+        "label": "Knee, lateral",
+        "title": "No fracture: lateral knee",
+        "findings": [
+            "The patella, distal femur and proximal tibia all have smooth outlines.",
+            "The knee is flexed, so the two femoral condyles overlap. The double contour this makes is normal.",
+            "On a lateral knee, also check above the patella for a joint effusion.",
+        ],
+    },
+    {
+        "id": "c20", "src": "20.jpg", "chamber": 2, "fracture": False, "source": None,
+        "label": "Ankle and foot, lateral",
+        "title": "No fracture: lateral ankle and foot",
+        "findings": [
+            "The distal tibia, talus and calcaneus have smooth, continuous outlines.",
+            "The tarsal and metatarsal bones overlap on a lateral view. Follow each bone's outline separately.",
+            "The ankle and subtalar joints are congruent.",
         ],
     },
 ]
@@ -173,8 +275,11 @@ def main():
     names = ["_preview.html"] if preview else ["index.html", "cast.embed.html"]
     for n in names:
         (ROOT / n).write_text(out, encoding="utf-8")
-    nf = sum(c["fracture"] for c in CASES)
-    print(f"built {len(cases)} case(s) ({nf} fracture, {len(cases)-nf} no fracture) -> {', '.join(names)}, {len(out)/1e6:.2f} MB")
+    for ch in (1, 2):
+        cs = [c for c in CASES if c["chamber"] == ch]
+        nf = sum(c["fracture"] for c in cs)
+        print(f"chamber {ch}: {len(cs)} case(s) ({nf} fracture, {len(cs)-nf} no fracture)")
+    print(f"-> {', '.join(names)}, {len(out)/1e6:.2f} MB")
 
 
 if __name__ == "__main__":
