@@ -1620,13 +1620,15 @@ async function caveIntro(){
   await waitFor(function(){ return Math.hypot(P.x - S.paper.x, P.y - (S.paper.y + 4)) < 11; });
   S.paper = null; hint(""); S.target = null;
   await holdUp("paper", "PACS ACCESS ACQUIRED", "Your login works. Mostly.");
-  await say("oldman", "The films are waiting in the chamber beyond. Read them well.");
+  var dest = await say("oldman", "Two trials lie beyond this cave. Which will you face?", ["Chamber I: The Guardians", "Chamber II: Saria's Lava Gym"]);
+  await say("oldman", dest ? "The Lava Gym, eh? Bring a towel. It gets hot in there." : "The guardians, then. The films are waiting. Read them well.");
   S.shake = .9; SFX.play("rumble"); await sleep(700);
   ROOMS.cave.open = true; SFX.play("secret");
   S.free = true; hint("Head north through the passage");
   await waitFor(function(){ return P.y < 44; });
   hint(""); S.free = false; S.target = null;
   await fadeTo(1, 450);
+  return dest;
 }
 
 async function chamberIntro(short){
@@ -1739,7 +1741,8 @@ async function gymIntro(short){
     SA.pose = "idle"; SFX.play("clank"); await sleep(350);
     await walkSaria(128, 136, "down");
     await talk([
-      ["saria", "Hey! You got past Stable and Splinter? Nice work!", "cheer"],
+      S.viaC1 ? ["saria", "Hey! You got past Stable and Splinter? Nice work!", "cheer"]
+              : ["saria", "Hey! A new challenger! Skipped the guardians, huh? Bold. I like it.", "cheer"],
       ["saria", "I'm Saria. Welcome to my Lava Gym. Mind the floor, it's a little... molten.", "idle"],
       ["saria", "The next trial is mine. Same question: fracture or no fracture? This time, you punch your answer.", "idle"],
       ["saria", "You get three health bubbles. Every wrong call, the ceiling drips lava on you. Lose all three and the round is over.", "wince"],
@@ -1867,8 +1870,8 @@ async function startQuest(mode){
   if (running) return; setRun(true);
   $("title").classList.remove("on"); $("end").classList.remove("on"); $("choice").classList.remove("on");
   hint(""); hideBagTags(); S.free = false; S.target = null;
-  SFX.ensure(); S.fade = 1; S.door1 = 0;
-  if (mode === "cave") await caveIntro();
+  SFX.ensure(); S.fade = 1; S.door1 = 0; S.viaC1 = false;
+  if (mode === "cave" && await caveIntro() === 1) mode = "c2";   // chosen in the cave
   if (mode !== "c2"){
     for (var again = false;;){
       await chamberIntro(again);
@@ -1880,6 +1883,7 @@ async function startQuest(mode){
       await waitFor(function(){ return P.y < 66 && Math.abs(P.x - 128) < 12; });
       hint(""); S.free = false; S.target = null;
       await walkTo(128, 40, "up"); await fadeTo(1, 450);
+      S.viaC1 = true;
       break;
     }
   }
@@ -1929,7 +1933,7 @@ document.addEventListener("keydown", function(e){
     return;
   }
   if (DIRK[k]){
-    if (S.dlg && S.dlg.choices && (DIRK[k] === "left" || DIRK[k] === "right")){ dlgMove(DIRK[k] === "left" ? -1 : 1); e.preventDefault(); return; }
+    if (S.dlg && S.dlg.choices){ dlgMove(DIRK[k] === "left" || DIRK[k] === "up" ? -1 : 1); e.preventDefault(); return; }
     KEY[DIRK[k]] = true; e.preventDefault(); return;
   }
   if (k === " " || k === "Enter" || k === "z" || k === "Z" || k === "e" || k === "E"){

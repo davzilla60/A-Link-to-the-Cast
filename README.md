@@ -4,7 +4,7 @@
 
 ## How it plays
 
-1. **The Cave Gift.** The player walks into a cave, where an old man says *"It's dangerous to go alone! Take this PACS login."* Picking up the paper triggers the item-held pose, a glow, a jingle and the **PACS Access Acquired** banner. A passage then opens to the north.
+1. **The Cave Gift.** The player walks into a cave, where an old man says *"It's dangerous to go alone! Take this PACS login."* Picking up the paper triggers the item-held pose, a glow, a jingle and the **PACS Access Acquired** banner. The old man then asks which trial to face: **Chamber I: The Guardians** or **Chamber II: Saria's Lava Gym** (arrow keys or tap to pick, A to confirm). A passage opens to the north and leads to the chosen chamber. If the player skips straight to the gym, Saria greets them differently.
 2. **The Guardians' Chamber.** Two statues flank a sealed door and introduce themselves:
    - **Stable** (No fracture): intact, symmetrical, arms folded, calm and slightly smug.
    - **Splinter** (Fracture): cracked and chipped, with his chest plate shifted out of line. Cheeky and theatrical.
